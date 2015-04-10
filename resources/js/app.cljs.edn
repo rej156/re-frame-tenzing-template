@@ -1,0 +1,2 @@
+{:require  [dissertation.app]
+ :init-fns [dissertation.app/init]}
