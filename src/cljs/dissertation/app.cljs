@@ -8,16 +8,10 @@
 (defn my-component []
   (let [component (subscribe [:component-to-render])]
     (fn []
-      (let [deref-component @component]
-        [:div.container
-         [:h1 {:on-click #(dispatch [:render-component :next-page])}"Change page"]
-         [:a {:href "#/next-page"} "Click me!"]
-         [:h1 (str "This is my let ")]
-         (if deref-component
-           [deref-component]
-           [:h1 "404"])
-         ])
-      )))
+      (if-let [main-component @component]
+        [main-component])
+      )
+  ))
 
 (defn calling-component []
   (reagent/create-class

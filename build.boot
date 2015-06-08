@@ -1,15 +1,14 @@
 (set-env!
  :source-paths    #{"src/cljs"}
  :resource-paths  #{"resources"}
- :dependencies '[[adzerk/boot-cljs      "0.0-2814-0" :scope "test"]
+ :dependencies '[[adzerk/boot-cljs      "0.0-3269-2" :scope "test"]
                  [adzerk/boot-cljs-repl "0.1.9"      :scope "test"]
-                 [adzerk/boot-reload    "0.2.4"      :scope "test"]
-                 [pandeiro/boot-http    "0.6.1"      :scope "test"]
-		         [org.clojure/clojurescript "0.0-3126"]
+                 [adzerk/boot-reload    "0.2.6"      :scope "test"]
+                 [pandeiro/boot-http    "0.6.2"      :scope "test"]
                  [secretary "1.2.3"]
-		         [re-frame "0.2.0"]
+		         [re-frame "0.4.1"]
                  [reagent "0.5.0"]
-                 [reagent-forms "0.5.0"]])
+                 [reagent-forms "0.5.1"]])
 
 (require
  '[adzerk.boot-cljs      :refer [cljs]]
@@ -42,11 +41,7 @@
   (task-options! cljs {:optimizations :none
                        :unified-mode true
                        :source-map true}
-	         cljs-repl {:ip "46.101.42.30"}
-	         repl {:ip "46.101.42.30"}
-                 reload {
-		 :ip "46.101.42.30"
-		 :on-jsload 'dissertation.app/init})
+                 reload {:on-jsload 'dissertation.app/init})
   identity)
 
 (deftask dev

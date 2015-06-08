@@ -5,4 +5,5 @@
   (let [x 1]
     (fn []
       [:div.next-page
-       [:h1 "next-page"]])))
+       [:h1 "next-page"]
+       [:a {:href "#/home"} "Click me to render the homepage!"]])))
